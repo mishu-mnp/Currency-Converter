@@ -5,72 +5,62 @@ import React, { useEffect, useState } from 'react';
 function App() {
 
   const apiKey = '05cc98f0fe5e1d8e5248';
+
   // useState
   const [currency, setCurrency] = useState("")
-  const [country, setCountry] = useState([])
-  // const [currencyData, setCurrencyData] = useState([])
+  const [countryData, setCountryData] = useState([])
+  const [cName, setCName] = useState("");
+  const [amount, setAmount] = useState(null);
 
+  const getCountryName = (cName) => {
+    setCName(cName);
+  }
+
+  const getAmount = (amt) => {
+    setAmount(amt);
+  }
 
   const getCurrency = async () => {
-    const url = `https://free.currconv.com/api/v7/convert?q=USD_PHP&compact=ultra&apiKey=${apiKey}`;
+    // const url = `https://free.currconv.com/api/v7/convert?q=USD_INR&compact=ultra&apiKey=${apiKey}`;
+    const url = `https://free.currconv.com/api/v7/convert?q=${cName}&compact=ultra&apiKey=${apiKey}`;
     const data = await fetch(url);
+    console.log(data)
     const parsedData = await data.json()
-    setCurrency(parsedData)
+    setCurrency(parsedData.cName)
   }
 
   const getCountry = async () => {
     const countryUrl = `https://free.currconv.com/api/v7/currencies?apiKey=${apiKey}`;
     const cdata = await fetch(countryUrl);
     const cparsedData = await cdata.json();
-    // console.log(cparsedData);
-    // setCountry(cparsedData.results)
+
     let cntData = []
-    // console.log(cparsedData.results[0].Object.currencyName);
     for (let cnt in cparsedData.results) {
       cntData.push(cparsedData.results[cnt])
     }
-    // console.log(cntData)
-    setCountry(cntData);
+    cntData.sort((a, b) => a.currencyName.localeCompare(b.currencyName))
+    // console.log("Sorted Data >>>", cntData);
+    setCountryData(cntData);
   }
+
+
 
   useEffect(() => {
     getCurrency();
-    getCountry();
-  }, []);
+  }, [cName]);
 
-
-
-  // console.log(currency)
-  // console.log(country)
-  // console.log(country.results)
-
-  // let cntData = []
-  // for (let [key, value] of Object.entries(country)) {
-  //   cntData.push(value)
-  //   // console.log(key, value.currencyName, value.currencySymbol, value.id);
-  // }
-
-  // setCurrencyData(cntData);
-
-  // console.log(currencyData)
-
-  // const getDetailedData = () => {
-  //   let cntData = currencyData.map((cnt) => {
-  //     console.log(cnt.currencyName)
-  //     return cnt
-  //   })
-  //   console.log(cntData)
-  // }
-
-  // getDetailedData();
-
-  console.log(country)
-
+  getCountry();
+  // console.log(countryData)
+  // console.log(cName)
+  // console.log(currency.cName)
 
   return (
     <div className="App">
       {/* <h1>Currency Converter</h1> */}
-      <CurrencyCard />
+      <span>Selected From_To {cName}</span>
+      <span>Converting amount = {amount} </span>
+      <span>cnt amount = {currency ? 'NULL' : currency.cName} </span>
+      <CurrencyCard countryData={countryData} getCountry={getCountryName} getAmount={getAmount} />
     </div>
   );
 }

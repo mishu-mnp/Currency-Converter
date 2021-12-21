@@ -3,14 +3,14 @@ import './CurrencyCard.css';
 import CurrencyInput from './CurrencyInput';
 import CurrencyMenu from './CurrencyMenu';
 
-const CurrencyCard = () => {
+const CurrencyCard = (props) => {
+
     return (
         <div className='currency-card'>
             <h1>Currency Converter</h1>
             <div className="currency-item">
-                <CurrencyInput />
-                <CurrencyMenu title='From' />
-                <CurrencyMenu title='To' />
+                <CurrencyInput getAmount={props.getAmount} />
+                <CurrencyMenu countryData={props.countryData} country={props.getCountry} />
             </div>
             <p className='currency-card__result blink'>
                 <span>1 </span>

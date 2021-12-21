@@ -25,3 +25,7 @@
   font-weight: bold;
   margin-right: 5px;
 }
+
+.currency-input {
+  flex: 0.8 auto;
+}

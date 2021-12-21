@@ -11,3 +11,9 @@
   /* text-align: center; */
   outline: none;
 }
+
+.currency-menu {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
