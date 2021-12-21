@@ -1,0 +1,13 @@
+#countryCode__option {
+  background: white;
+  width: 15rem;
+  height: 3rem;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 10px;
+  border-radius: 12px;
+  padding: 10px;
+  font-size: 0.9rem;
+  /* text-align: center; */
+  outline: none;
+}

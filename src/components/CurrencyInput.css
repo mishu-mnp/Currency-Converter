@@ -1,0 +1,27 @@
+.amount {
+  /* border: 1px solid gray; */
+  width: 15rem;
+  height: 3rem;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 10px;
+}
+
+.amount input {
+  border: none;
+  font-size: 1.2rem;
+  outline: none;
+  width: 12rem;
+  margin: 10px;
+  margin-left: 0;
+  font-weight: 100;
+}
+
+.amount i {
+  position: relative;
+  float: left;
+  margin: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 5px;
+}
