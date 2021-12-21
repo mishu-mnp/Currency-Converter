@@ -7,7 +7,7 @@ const CurrencyMenu = (props) => {
             <h2>{props.title}</h2>
             <div className="countryCode">
                 <select id="countryCode__option">
-                    <option value="select" selected>Select</option>
+                    <option value="select" defaultValue='Select'>Select</option>
                     <option className='countryCode__value' value="inr">INR - Indian</option>
                     <option className='countryCode__value' value="usd">USD - US Dollar</option>
                     <option className='countryCode__value' value="aud">AUD - Australian Dollar</option>

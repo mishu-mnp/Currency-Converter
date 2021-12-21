@@ -32,7 +32,7 @@
 }
 
 .blink {
-  animation: blinker 2s linear infinite;
+  animation: blinker 4s linear infinite;
 }
 
 @keyframes blinker {
