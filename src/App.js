@@ -4,13 +4,15 @@ import React, { useEffect, useState } from 'react';
 
 function App() {
 
-  const apiKey = '05cc98f0fe5e1d8e5248';
+  const apiKey = '225cd3a8dc6048849f17';
 
   // useState
-  const [currency, setCurrency] = useState("")
+  const [currency, setCurrency] = useState(null)
   const [countryData, setCountryData] = useState([])
   const [cName, setCName] = useState("");
   const [amount, setAmount] = useState(null);
+
+  console.log(cName)
 
   const getCountryName = (cName) => {
     setCName(cName);
@@ -24,9 +26,15 @@ function App() {
     // const url = `https://free.currconv.com/api/v7/convert?q=USD_INR&compact=ultra&apiKey=${apiKey}`;
     const url = `https://free.currconv.com/api/v7/convert?q=${cName}&compact=ultra&apiKey=${apiKey}`;
     const data = await fetch(url);
-    console.log(data)
     const parsedData = await data.json()
-    setCurrency(parsedData.cName)
+    console.log(parsedData)
+    const amountConverted = Object.values(parsedData)[0];
+
+    setCurrency(amountConverted)
+    console.log(currency)
+    // console.log(Object.values(currency)[0])
+    // setCurrency(Object.values(parsedData)[0])
+    // console.log(currency)
   }
 
   const getCountry = async () => {
@@ -44,22 +52,23 @@ function App() {
   }
 
 
-
   useEffect(() => {
-    getCurrency();
+    if (cName !== 'NA_NA') {
+      getCurrency();
+    }
   }, [cName]);
 
-  getCountry();
-  // console.log(countryData)
-  // console.log(cName)
-  // console.log(currency.cName)
+
+  useEffect(() => {
+    getCountry();
+  }, [])
 
   return (
     <div className="App">
       {/* <h1>Currency Converter</h1> */}
       <span>Selected From_To {cName}</span>
       <span>Converting amount = {amount} </span>
-      <span>cnt amount = {currency ? 'NULL' : currency.cName} </span>
+      <span>cnt amount = {amount * currency} </span>
       <CurrencyCard countryData={countryData} getCountry={getCountryName} getAmount={getAmount} />
     </div>
   );

@@ -14,7 +14,9 @@ const CurrencyMenu = (props) => {
         setToValue(e.target.value)
     }
 
+
     props.country(fromValue + '_' + toValue)
+
 
     return (
         <div className='currency-menu'>
@@ -24,7 +26,7 @@ const CurrencyMenu = (props) => {
                     <select id="countryCode__option" value={fromValue} onChange={handleFromChange}>
                         <option value="select" defaultValue='Select'>Select</option>
                         {props.countryData.map((c) => {
-                            return <option className='countryCode__value' value={c.id}>{c.currencyName}</option>
+                            return <option className='countryCode__value' id={c.id} value={c.id}>{c.currencyName}</option>
                         })}
                     </select>
                 </div>
@@ -35,7 +37,7 @@ const CurrencyMenu = (props) => {
                     <select id="countryCode__option" value={toValue} onChange={handleToChange}>
                         <option value="select" defaultValue='Select'>Select</option>
                         {props.countryData.map((c) => {
-                            return <option className='countryCode__value' value={c.id}>{c.currencyName}</option>
+                            return <option className='countryCode__value' id={c.id} value={c.id}>{c.currencyName}</option>
                         })}
                     </select>
                 </div>
