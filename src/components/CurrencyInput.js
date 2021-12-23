@@ -11,6 +11,7 @@ const CurrencyInput = (props) => {
 
     const handleAmount = () => {
         props.getAmount(amountValue);
+        setAmountValue('');
     }
 
 
@@ -20,8 +21,7 @@ const CurrencyInput = (props) => {
             {/* <h3>Currency Input</h3> */}
             <h2>Amount</h2>
             <div className="amount">
-                <input type="text" className='amount__value' value={amountValue} onChange={handleOnChange} />
-                <i className='currency__icon'>$</i>
+                <input type="text" placeholder='enter amount' className='amount__value' id='amtValue' value={amountValue} onChange={handleOnChange} />
                 <span className='search__icon' onClick={handleAmount}><i className="fas fa-search"></i></span>
             </div>
         </div>

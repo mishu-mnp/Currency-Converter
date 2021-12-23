@@ -6,4 +6,13 @@
 
 body {
   background-color: aqua;
+  content: " ";
+  background: url("https://cdn.shopify.com/app-store/listing_images/e415e0786f63be8e176d3b037572ace8/banner/CPDHjNb0lu8CEAE=.png")
+    center center/cover no-repeat;
+  position: relative;
+
+  /* z-index: -1; */
+  /* opacity: 0.1; */
+  bottom: -175px;
+  height: 12rem;
 }

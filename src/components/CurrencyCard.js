@@ -4,21 +4,27 @@ import CurrencyInput from './CurrencyInput';
 import CurrencyMenu from './CurrencyMenu';
 
 const CurrencyCard = (props) => {
+    console.log(props.amount)
+    console.log(props.cName)
 
     return (
         <div className='currency-card'>
-            <h1>Currency Converter</h1>
+            <h1>Currency Converter App</h1>
             <div className="currency-item">
                 <CurrencyInput getAmount={props.getAmount} />
                 <CurrencyMenu countryData={props.countryData} country={props.getCountry} />
             </div>
-            <p className='currency-card__result blink'>
-                <span>1 </span>
-                <span>USD</span>
-                <span> = </span>
-                <span>75</span>
-                <span> INR</span>
-            </p>
+            <div className="currency">
+                <h2>Calculated Currency</h2>
+                <p className='currency-card__result'>
+                    <span className='one-amount'>{props.amount === null ? '' : `1 ${props.cName.split('_')[0]} = ${props.amount} ${props.cName.split('_')[1]}`}</span>
+                    <span>{props.amount === null ? '' : props.amount} </span>
+                    <span>{props.cName === 'NA_NA' ? '' : props.cName.split('_')[0]} </span>
+                    <span>{props.amount === null ? '' : '='} </span>
+                    <span>{props.amount === null ? '' : props.amount * props.currency}</span>
+                    <span> {props.cName === 'NA_NA' ? '' : props.cName.split('_')[1]}</span>
+                </p>
+            </div>
         </div>
     )
 }

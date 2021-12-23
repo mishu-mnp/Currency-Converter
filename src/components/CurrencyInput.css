@@ -1,6 +1,6 @@
 .amount {
   /* border: 1px solid gray; */
-  width: 15rem;
+  width: 20rem;
   height: 3rem;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -11,9 +11,9 @@
   border: none;
   font-size: 1.2rem;
   outline: none;
-  width: 12rem;
+  width: auto;
   margin: 10px;
-  margin-left: 0;
+  margin-left: 12px;
   font-weight: 100;
 }
 
@@ -28,4 +28,18 @@
 
 .currency-input {
   flex: 0.8 auto;
+}
+
+.search__icon {
+  position: relative;
+  float: right;
+  padding: 3px;
+  cursor: pointer;
+  background: greenyellow;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.amount label {
+  margin: 12px;
 }

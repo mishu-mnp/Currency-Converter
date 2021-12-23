@@ -7,7 +7,7 @@
   margin: 8rem auto;
   padding: 2rem;
   background-color: white;
-  height: 30rem;
+  height: 35rem;
   border-radius: 12px;
 }
 
@@ -29,11 +29,35 @@
   left: 5rem;
   top: 2rem;
   color: salmon;
-  font-weight: 500;
+  font-weight: 600;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  width: 30rem;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  text-align: center;
 }
 
 .blink {
   animation: blinker 4s linear infinite;
+}
+
+.currency {
+  /* border: 1px solid aqua; */
+  height: 9rem;
+  margin-right: 1rem;
+  margin: 4rem;
+}
+
+.currency h2 {
+  padding-left: 3rem;
+}
+
+.one-amount {
+  display: block;
+  font-size: 1.5rem;
+  color: blueviolet;
+  padding-bottom: 10px;
 }
 
 @keyframes blinker {
