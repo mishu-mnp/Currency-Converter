@@ -26,11 +26,9 @@ function App() {
     const url = `https://free.currconv.com/api/v7/convert?q=${cName}&compact=ultra&apiKey=${apiKey}`;
     const data = await fetch(url);
     const parsedData = await data.json()
-    // console.log(parsedData)
     const amountConverted = Object.values(parsedData)[0];
     setCurrency(amountConverted)
-    // console.log(currency)
-  }
+  } // eslint-disable-line react-hooks/exhaustive-deps
 
   const getCountry = async () => {
     const countryUrl = `https://free.currconv.com/api/v7/currencies?apiKey=${apiKey}`;
@@ -47,14 +45,17 @@ function App() {
 
 
   useEffect(() => {
-    if (cName !== 'NA_NA') {
-      getCurrency();
+    if (!(cName.split('_')[0] === 'NA' || cName.split('_')[1] === 'NA')) {
+      getCurrency(cName);
     }
+
+    // eslint-disable-line react-hooks/exhaustive-deps
   }, [cName]);
 
 
   useEffect(() => {
     getCountry();
+    // eslint-disable-next-line
   }, [])
 
   return (

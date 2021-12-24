@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './CurrencyMenu.css';
 
-const CurrencyMenu = (props) => {
+const CurrencyMenu = ({ country, countryData }) => {
 
     const [fromValue, setFromValue] = useState("NA")
     const [toValue, setToValue] = useState("NA")
@@ -14,11 +14,14 @@ const CurrencyMenu = (props) => {
         setToValue(e.target.value)
     }
 
+    useEffect(() => {
+        if (!(fromValue === 'NA' || toValue === 'NA')) {
+            country(fromValue + '_' + toValue)
+        }
+    }, [fromValue, toValue]);
 
-    props.country(fromValue + '_' + toValue)
-
-    console.log(fromValue)
-    console.log(toValue)
+    // console.log(fromValue)
+    // console.log(toValue)
 
 
     return (
@@ -28,8 +31,8 @@ const CurrencyMenu = (props) => {
                 <div className="countryCode">
                     <select id="countryCode__option" value={fromValue} onChange={handleFromChange}>
                         <option value="select" defaultValue='Select'>Select</option>
-                        {props.countryData.map((c) => {
-                            return <option className='countryCode__value' id={c.id} value={c.id}>{c.currencyName}  {c.currencySymbol}</option>
+                        {countryData.map((c) => {
+                            return <option className='countryCode__value' key={c.id} id={c.id} value={c.id}>{c.currencyName}  {c.currencySymbol}</option>
                         })}
                     </select>
                 </div>
@@ -39,8 +42,8 @@ const CurrencyMenu = (props) => {
                 <div className="countryCode">
                     <select id="countryCode__option" value={toValue} onChange={handleToChange}>
                         <option value="select" defaultValue='Select'>Select</option>
-                        {props.countryData.map((c) => {
-                            return <option className='countryCode__value' id={c.id} value={c.id}>{c.currencyName} {c.currencySymbol}</option>
+                        {countryData.map((c) => {
+                            return <option className='countryCode__value' key={c.id} id={c.id} value={c.id}>{c.currencyName} {c.currencySymbol}</option>
                         })}
                     </select>
                 </div>

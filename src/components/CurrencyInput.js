@@ -14,8 +14,6 @@ const CurrencyInput = (props) => {
         setAmountValue('');
     }
 
-
-
     return (
         <div className='currency-input'>
             {/* <h3>Currency Input</h3> */}

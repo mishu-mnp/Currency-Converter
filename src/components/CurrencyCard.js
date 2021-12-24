@@ -4,8 +4,8 @@ import CurrencyInput from './CurrencyInput';
 import CurrencyMenu from './CurrencyMenu';
 
 const CurrencyCard = (props) => {
-    console.log(props.amount)
-    console.log(props.cName)
+    // console.log(props.amount)
+    // console.log(props.cName)
 
     return (
         <div className='currency-card'>
@@ -17,7 +17,7 @@ const CurrencyCard = (props) => {
             <div className="currency">
                 <h2>Calculated Currency</h2>
                 <p className='currency-card__result'>
-                    <span className='one-amount'>{props.amount === null ? '' : `1 ${props.cName.split('_')[0]} = ${props.amount} ${props.cName.split('_')[1]}`}</span>
+                    <span className='one-amount'>{props.amount === null ? '' : `1 ${props.cName.split('_')[0]} = ${props.currency} ${props.cName.split('_')[1]}`}</span>
                     <span>{props.amount === null ? '' : props.amount} </span>
                     <span>{props.cName === 'NA_NA' ? '' : props.cName.split('_')[0]} </span>
                     <span>{props.amount === null ? '' : '='} </span>
