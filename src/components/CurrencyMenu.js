@@ -29,10 +29,10 @@ const CurrencyMenu = ({ country, countryData }) => {
             <div className="from-container">
                 <h2>From</h2>
                 <div className="countryCode">
-                    <select id="countryCode__option" value={fromValue} onChange={handleFromChange}>
+                    <select id="countryCode__option" name='fromCountry' value={fromValue} onChange={handleFromChange}>
                         <option value="select" defaultValue='Select'>Select</option>
                         {countryData.map((c) => {
-                            return <option className='countryCode__value' key={c.id} id={c.id} value={c.id}>{c.currencyName}  {c.currencySymbol}</option>
+                            return <option className='countryCode__value' key={c.id + 'f'} id={c.id + 'f'} value={c.id}>{c.currencyName}  {c.currencySymbol}</option>
                         })}
                     </select>
                 </div>
@@ -40,10 +40,10 @@ const CurrencyMenu = ({ country, countryData }) => {
             <div className="to-container">
                 <h2>To</h2>
                 <div className="countryCode">
-                    <select id="countryCode__option" value={toValue} onChange={handleToChange}>
+                    <select id="countryCode__option" name='toCountry' value={toValue} onChange={handleToChange}>
                         <option value="select" defaultValue='Select'>Select</option>
                         {countryData.map((c) => {
-                            return <option className='countryCode__value' key={c.id} id={c.id} value={c.id}>{c.currencyName} {c.currencySymbol}</option>
+                            return <option className='countryCode__value' key={c.id + 't'} id={c.id + 't'} value={c.id}>{c.currencyName} {c.currencySymbol}</option>
                         })}
                     </select>
                 </div>

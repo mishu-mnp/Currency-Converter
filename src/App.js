@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 function App() {
 
-  const apiKey = '225cd3a8dc6048849f17';
+  const apiKey = process.env.REACT_APP_CURRENCY_API_KEY;
 
   // useState
   const [currency, setCurrency] = useState(null)
@@ -28,7 +28,8 @@ function App() {
     const parsedData = await data.json()
     const amountConverted = Object.values(parsedData)[0];
     setCurrency(amountConverted)
-  } // eslint-disable-line react-hooks/exhaustive-deps
+  }
+
 
   const getCountry = async () => {
     const countryUrl = `https://free.currconv.com/api/v7/currencies?apiKey=${apiKey}`;
